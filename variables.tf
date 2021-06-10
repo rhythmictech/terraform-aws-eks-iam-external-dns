@@ -24,3 +24,9 @@ variable "service_account" {
   description = "Name of service account to create (computed based on cluster name if not specified)"
   type        = string
 }
+
+variable "tags" {
+  default     = {}
+  description = "Tags to add to supported resources"
+  type        = map(string)
+}

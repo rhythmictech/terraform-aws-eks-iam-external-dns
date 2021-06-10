@@ -61,6 +61,7 @@ resource "aws_iam_role" "external_dns" {
   name               = "eks-${var.cluster_name}-external-dns"
   assume_role_policy = data.aws_iam_policy_document.oidc_assume.json
   path               = "/"
+  tags               = var.tags
 }
 
 resource "aws_iam_role_policy_attachment" "route53_access" {
