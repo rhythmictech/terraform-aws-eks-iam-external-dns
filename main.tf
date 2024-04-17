@@ -5,7 +5,7 @@ locals {
   account_id          = data.aws_caller_identity.current.account_id
   issuer_host_path    = trim(var.issuer_url, "https://")
   provider_arn        = "arn:aws:iam::${local.account_id}:oidc-provider/${local.issuer_host_path}"
-  service_account     = var.service_account == "" ? "${var.cluster_name}-external-dns" : var.service_account
+  service_account     = var.service_account == "" ? "external-dns" : var.service_account
   service_account_arn = "system:serviceaccount:${var.kubernetes_namespace}:${local.service_account}"
 }
 
